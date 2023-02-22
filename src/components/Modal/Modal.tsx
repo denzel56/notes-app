@@ -3,19 +3,35 @@ import { useDispatch } from "react-redux";
 import { modalState } from "../../store/modalSlice";
 import { noteState } from "../../store/noteSlice";
 import { INote } from "../../models/models";
+import useTags from "../../hooks/useTags";
+
+
 
 const Modal = ({ }) => {
   const [noteText, setNoteText] = useState('')
   const dispatch = useDispatch();
+  const tags = useTags(noteText);
 
   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+
     setNoteText(prevState => e.target.value);
   }
 
   const handleClickSave = () => {
+    const date = new Date().getTime();
+
+    console.log(tags);
+
+    const noteData: INote = {
+      'id': date,
+      'noteText': noteText,
+      'tags': tags ? tags : [],
+    }
+
+
     dispatch(modalState());
     dispatch(noteState({
-
+      noteData
     }))
   }
 
