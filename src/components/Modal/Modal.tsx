@@ -12,6 +12,7 @@ const Modal = ({ }) => {
   const dispatch = useDispatch();
   const tags = useTags(noteText);
 
+
   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
 
     setNoteText(prevState => e.target.value);
@@ -20,13 +21,13 @@ const Modal = ({ }) => {
   const handleClickSave = () => {
     const date = new Date().getTime();
 
-    console.log(tags);
 
     const noteData: INote = {
       'id': date,
       'noteText': noteText,
       'tags': tags ? tags : [],
     }
+
 
 
     dispatch(modalState());

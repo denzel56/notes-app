@@ -1,20 +1,14 @@
-import React from 'react';
-import AddButton from './components/AddButton';
-import Modal from './components/Modal';
-
-import { useSelector } from "react-redux";
-import { modalStateSelector } from './store/modalSlice';
+import { Routes, Route } from 'react-router-dom';
+import MainPage from './pages';
 
 function App() {
-  const isModal = useSelector(modalStateSelector);
 
   return (
     <>
-      <h1 className='text-center font-bold'>Hello type</h1>
-      <AddButton />
-      {
-        isModal && <Modal />
-      }
+      <Routes>
+        <Route path="/" element={<MainPage />} />
+        <Route path="characters/:id"  />
+      </Routes>
     </>
   );
 }

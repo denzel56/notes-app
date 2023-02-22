@@ -1,8 +1,9 @@
 function useTags(text: string) {
   const mr = /#[a-zA-Zа-яА-ЯёЁ]\w+\b/g
-  const resultTags = text.match(mr);
+  const tags = text.match(mr);
 
-  return resultTags;
+
+  return tags;
 }
 
 export default useTags;
