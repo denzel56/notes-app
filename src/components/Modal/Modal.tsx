@@ -24,7 +24,7 @@ const Modal = ({ }) => {
 
     const noteData: INote = {
       'id': date,
-      'noteText': noteText,
+      'text': noteText,
       'tags': tags ? tags : [],
     }
 
@@ -34,6 +34,10 @@ const Modal = ({ }) => {
     dispatch(noteState({
       noteData
     }))
+  }
+
+  const handleClickCancel = () => {
+    dispatch(modalState());
   }
 
   return (
@@ -48,10 +52,17 @@ const Modal = ({ }) => {
           />
           <button
             type="button"
-            className="mt-8 p-2 bg-yellow-300 rounded-xl shadow-md outline-none cursor-pointer active:shadow-none"
+            className="mt-8 p-2 bg-green-300 rounded-xl shadow-md outline-none cursor-pointer active:shadow-none"
             onClick={handleClickSave}
           >
             Сохранить
+          </button>
+          <button
+            type="button"
+            className="mt-8 mr-5 p-2 bg-yellow-300 rounded-xl shadow-md outline-none cursor-pointer active:shadow-none"
+            onClick={handleClickCancel}
+          >
+            Отменить
           </button>
         </div>
       </div>

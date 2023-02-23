@@ -1,5 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
-import MainPage from './pages';
+import MainPage from './pages/MainPage';
+import NotePage from './pages/NotePage';
 
 function App() {
 
@@ -7,7 +8,7 @@ function App() {
     <>
       <Routes>
         <Route path="/" element={<MainPage />} />
-        <Route path="characters/:id"  />
+        <Route path="note/:id" element={<NotePage />} />
       </Routes>
     </>
   );
